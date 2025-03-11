@@ -1,78 +1,94 @@
-﻿﻿while True:
-        print("выберите функцию 1-10")
-        print("1. swapcase ")
-        print("2. перевернуть строку")
-        print("3. получить длину строки")
-        print("4. перевести в верхний регистр")
-        print("5. перевести в нижний регистр")
-        print("6. проверить, является ли строка цифрой")
-        print("7. проверить, является ли строка буквой")
-        print("8. проверить, является ли строка палиндромом")
-        print("9. преобразовать строку в список слов")
-        print("10. обрезать пробелы в начале и конце строки")
-        print("0. выход")
-        
-        answer = input("введите число: ")
-        
-        if answer == "1":
-            s = input("Введите строку: ")
-            print(s.swapcase())
-            print("функция .swapcase переводит символы нижнего регистра в верхний, а верхнего в нижний")
-        
-        elif answer == "2":
-            s = input("Введите строку: ")
-            print(s[::-1])
-            print("функция переворачивает строку")
-        
-        elif answer == "3":
-            s = input("Введите строку: ")
-            print(len(s))
-            print("функция возвращает длину строки")
-        
-        elif answer == "4":
-            s = input("Введите строку: ")
-            print(s.upper())
-            print("функция переводит строку в верхний регистр")
-        
-        elif answer == "5":
-            s = input("Введите строку: ")
-            print(s.lower())
-            print("функция переводит строку в нижний регистр")
-        
-        elif answer == "6":
-            s = input("Введите строку: ")
-            if s.isdigit():
-                print("Строка состоит только из цифр.")
-            else:
-                print("Строка содержит не только цифры.")
-        
-        elif answer == "7":
-            s = input("Введите строку: ")
-            if s.isalpha():
-                print("Строка состоит только из букв.")
-            else:
-                print("Строка содержит не только буквы.")
-        
-        elif answer == "8":
-            s = input("Введите строку: ")
-            if s == s[::-1]:
-                print("Строка является палиндромом.")
-            else:
-                print("Строка не является палиндромом.")
-        
-        elif answer == "9":
-            s = input("Введите строку: ")
-            word_list = s.split()  # Разделяем строку на список слов
-            print(f"Строка преобразована в список слов: {word_list}")
-        
-        elif answer == "10":
-            s = input("Введите строку: ")
-            print(s.strip())
-            print("функция удаляет пробелы с начала и конца строки.")
-        
-        elif answer == "0":
-            print("Выход из программы.")
-            break  # Выход из цикла и завершение программы
-        
+import random
+
+while True:
+    print("Valige funktsioon 1-10")
+    print("1. Vaheta suurtähed väikesteks ja vastupidi")
+    print("2. Pööra string ümber")
+    print("3. Leia stringi pikkus")
+    print("4. Vali juhuslik element")
+    print("5. Muuda kõik tähed väikesteks")
+    print("6. Kontrolli, kas string koosneb ainult numbritest")
+    print("7. Kontrolli, kas string koosneb ainult tähtedest")
+    print("8. Kontrolli, kas string on palindroom")
+    print("9. Muuda string sõnade loendiks")
+    print("10. Muuda esimene täht suureks ja ülejäänud väikesteks")
+    print("11. Looge list, kus on stringi iga elemendi ruudud")
+    print("12. Segage stringi elemendid")
+    print("0. Välju programmist")
+
+    answer = input("Sisestage number: ")
+
+    if answer == "1":
+        s = input("Sisestage string: ")
+        print(s.swapcase())
+        print("Funktsioon .swapcase muudab väiketähed suurtähtedeks ja vastupidi.")
+
+    elif answer == "2":
+        s = input("Sisestage string: ")
+        print(s[::-1])
+        print("Funktsioon pöörab stringi ümber.")
+
+    elif answer == "3":
+        s = input("Sisestage string: ")
+        print(len(s))
+        print("Funktsioon tagastab stringi pikkuse.")
+
+    elif answer == "4":
+        s = input("Sisestage string: ")
+        print(random.choice(s))
+        print("Juhusliku elemendi valik.")
+
+    elif answer == "5":
+        s = input("Sisestage string: ")
+        print(s.lower())
+        print("Funktsioon muudab stringi kõik tähed väikesteks.")
+
+    elif answer == "6":
+        s = input("Sisestage string: ")
+        if s.isdigit():
+            print("String koosneb ainult numbritest.")
         else:
-            print("Неверный выбор, попробуйте снова.")
+            print("String sisaldab muid sümboleid peale numbrite.")
+
+    elif answer == "7":
+        s = input("Sisestage string: ")
+        if s.isalpha():
+            print("String koosneb ainult tähtedest.")
+        else:
+            print("String sisaldab muid sümboleid peale tähtede.")
+
+    elif answer == "8":
+        s = input("Sisestage string: ")
+        if s == s[::-1]:
+            print("String on palindroom.")
+        else:
+            print("String ei ole palindroom.")
+
+    elif answer == "9":
+        s = input("Sisestage string: ")
+        word_list = s.split()
+        print(f"String on muudetud sõnade loendiks: {word_list}")
+
+    elif answer == "10":
+        s = input("Sisestage string: ")
+        print(s.capitalize())
+        print("Muudab esimese tähe suureks ja kõik ülejäänud väikesteks.")
+
+    elif answer == "11":
+        s = input("Sisestage string: ")
+        squares = [x**2 for x in s]
+        print(squares)
+        print("Funktsioon loob listi, kus on stringi iga elemendi ruudud.")
+
+    elif answer == "12":
+        s = input("Sisestage string: ")
+        random.shuffle(s)
+        print(s)
+        print("Funktsioon segab stringi elemendid.")
+        
+    elif answer == "0":
+        print("Väljumine programmist.")
+        break
+
+    else:
+        print("Vale valik, proovige uuesti.")
